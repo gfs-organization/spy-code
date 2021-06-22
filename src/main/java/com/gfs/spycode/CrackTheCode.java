@@ -13,8 +13,8 @@ public class CrackTheCode {
         }
         //        System.out.println("Original: " + plainText);
         final String flipped = new String(plainChars);
-        System.out.println("Flipped: " + flipped);
-        //        return flipped;
+        //        System.out.println("Flipped: " + flipped);
+        return flipped;
     }
 
 }
