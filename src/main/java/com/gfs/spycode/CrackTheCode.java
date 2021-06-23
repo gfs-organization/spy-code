@@ -3,9 +3,7 @@ package com.gfs.spycode;
 public class CrackTheCode {
 
     public String solution(final String encodedText) {
-        if (encodedText == null || encodedText.isEmpty()) {
-            return "";
-        }
+       
         char[] decodedChars = new char[encodedText.length()];
         int counter = 0;
         for (int c : encodedText.toCharArray()) {
