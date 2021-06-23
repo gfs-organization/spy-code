@@ -1,6 +1,7 @@
 package com.gfs.spycode;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
@@ -17,12 +18,18 @@ public class CrackTheCodeTest {
 
     @Test
     public void shouldDecode() {
-        assertThat(target.solution("The sly grey fox ran fast."), is("Uid!rmx!fsdx!gny!s`o!g`ru/"));
+        final String solution = target.solution("The sly grey fox ran fast.");
+        final String expected = "Uid!rmx!fsdx!gny!s`o!g`ru/";
+        assertThat(solution, is(expected));
+
+        assertEquals(expected, solution);
     }
 
     @Test
     public void shouldEncode() {
-        assertThat(target.solution("Uid!rmx!fsdx!gny!s`o!g`ru/"), is("The sly grey fox ran fast."));
+        final String solution = target.solution("Uid!rmx!fsdx!gny!s`o!g`ru/");
+        final String expected = "The sly grey fox ran fast.";
+        assertThat(solution, is(expected));
     }
 
     @Test
