@@ -1,7 +1,6 @@
 package com.gfs.spycode;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
@@ -18,31 +17,33 @@ public class CrackTheCodeTest {
 
     @Test
     public void shouldDecode() {
-        final String solution = target.solution("The sly grey fox ran fast.");
-        final String expected = "Uid!rmx!fsdx!gny!s`o!g`ru/";
+        final String encodedText = "The sly grey fox ran slow.";
+        final String solution = target.solution(encodedText);
+        final String expected = "Uid!rmx!fsdx!gny!s`o!rmnv/";
         assertThat(solution, is(expected));
-
-        assertEquals(expected, solution);
     }
 
     @Test
     public void shouldEncode() {
-        final String solution = target.solution("Uid!rmx!fsdx!gny!s`o!g`ru/");
+        final String encodedText = "Uid!rmx!fsdx!gny!s`o!g`ru/";
+        final String solution = target.solution(encodedText);
         final String expected = "The sly grey fox ran fast.";
         assertThat(solution, is(expected));
     }
 
     @Test
     public void shouldDecodeMedium() {
-        assertThat(target.solution("One Ring to rule them all, One Ring to find them, One Ring to bring them all, and in the darkness bind them"),
-                is("Nod!Shof!un!stmd!uidl!`mm-!Nod!Shof!un!ghoe!uidl-!Nod!Shof!un!cshof!uidl!`mm-!`oe!ho!uid!e`sjodrr!choe!uidl"));
+        final String encodedText = "One Ring to rule them all, One Ring to find them, One Ring to bring them all, and in the darkness blind them";
+        final String expected = "Nod!Shof!un!stmd!uidl!`mm-!Nod!Shof!un!ghoe!uidl-!Nod!Shof!un!cshof!uidl!`mm-!`oe!ho!uid!e`sjodrr!cmhoe!uidl";
+        assertThat(target.solution(encodedText), is(expected));
 
     }
 
     @Test
     public void shouldEncodeMedium() {
-        assertThat(target.solution("Nod!Shof!un!stmd!uidl!`mm-!Nod!Shof!un!ghoe!uidl-!Nod!Shof!un!cshof!uidl!`mm-!`oe!ho!uid!e`sjodrr!choe!uidl"),
-                is("One Ring to rule them all, One Ring to find them, One Ring to bring them all, and in the darkness bind them"));
+        final String encodedText = "Nod!Shof!un!stmd!uidl!`mm-!Nod!Shof!un!ghoe!uidl-!Nod!Shof!un!cshof!uidl!`mm-!`oe!ho!uid!e`sjodrr!choe!uidl";
+        final String expected = "One Ring to rule them all, One Ring to find them, One Ring to bring them all, and in the darkness bind them";
+        assertThat(target.solution(encodedText), is(expected));
 
     }
 
