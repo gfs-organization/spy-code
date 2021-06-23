@@ -3,14 +3,9 @@ package com.gfs.spycode;
 public class CrackTheCode {
 
     public String solution(final String encodedText) {
-        var results = new byte[encodedText.length()];
-
-        for (var i = 0; i < encodedText.length(); i++) {
-            if (encodedText.charAt(i) % 2 == 0) {
-                results[i] = (byte) (encodedText.charAt(i) + 1);
-            } else {
-                results[i] = (byte) (encodedText.charAt(i) - 1);
-            }
+        final var results = new byte[encodedText.length()];
+        for (var i = 0; i < results.length; i++) {
+            results[i] = (byte) (encodedText.codePointAt(i) + 1 - (2 * (encodedText.codePointAt(i) % 2)));
         }
         return new String(results);
     }
