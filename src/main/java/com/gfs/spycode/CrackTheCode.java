@@ -2,12 +2,12 @@ package com.gfs.spycode;
 
 public class CrackTheCode {
 
-    public String solution(final String plainText) {
-        final byte[] plainChars = plainText.getBytes();
-        for (int i = 0; i < plainChars.length; i++) {
-            plainChars[i] ^= 1;
+    public String solution(final String encodedText) {
+        final char[] code = encodedText.toCharArray();
+        for (int i = code.length - 1; i > -1; --i) {
+            code[i] = (char) (code[i] + ((((code[i] + 1) % 2))) - (code[i] % 2));
         }
-        return new String(plainChars);
+        return String.valueOf(code);
     }
 
 }
