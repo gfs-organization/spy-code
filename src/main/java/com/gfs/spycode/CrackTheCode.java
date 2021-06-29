@@ -2,12 +2,14 @@ package com.gfs.spycode;
 
 public class CrackTheCode {
 
-    public String solution(final String plainText) {
-        final byte[] plainChars = plainText.getBytes();
-        for (int i = 0; i < plainChars.length; i++) {
-            plainChars[i] ^= 1;
-        }
-        return new String(plainChars);
-    }
+    public String solution(final String encodedText) {
 
+        StringBuilder convertedTest = new StringBuilder();
+        for (char digit : encodedText.toCharArray()) {
+            int keycode = (int) digit;
+            keycode = (keycode % 2 == 0) ? (keycode + 1) : (keycode - 1);
+            convertedTest.append((char) keycode);
+        }
+        return convertedTest.toString();
+    }
 }
