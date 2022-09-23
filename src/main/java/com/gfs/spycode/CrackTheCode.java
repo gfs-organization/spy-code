@@ -6,8 +6,7 @@ public class CrackTheCode {
         final byte[] plainChars = plainText.getBytes();
         for (int i = 0; i < plainChars.length; i++) {
             plainChars[i] ^= 1;
-            
-            System.out.println("help");
+           
         }
         return new String(plainChars);
     }
